@@ -11,10 +11,10 @@ import io
 import json
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  # Allow all origins in production
 
-# Configure Gemini API
-genai.configure(api_key="AIzaSyDzzYbKPHfWTByl9SefFXu7Sw-GHfKQwdI")
+# Configure Gemini API (use environment variable in production)
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY", "AIzaSyDzzYbKPHfWTByl9SefFXu7Sw-GHfKQwdI"))
 
 # Load spaCy model
 nlp = spacy.load("en_core_web_sm")

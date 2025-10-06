@@ -1,12 +1,10 @@
 services:
   - type: web
-    name: legalmind-backend
+    name: legalmind-analyzer
     env: python
     plan: free
-    buildCommand: |
-      pip install -r requirements.txt
-      python -m spacy download en_core_web_sm
-    startCommand: gunicorn app:app
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0

@@ -9,6 +9,12 @@ import os
 import tempfile
 import io
 import json
+from flask import Flask, render_template
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 
 app = Flask(__name__)
 CORS(app)  # Allow all origins in production
@@ -253,3 +259,4 @@ def chunk_text(text, max_chars=2500):
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+

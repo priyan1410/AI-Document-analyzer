@@ -667,7 +667,8 @@
     const overlay = document.getElementById('overlay');
     const overlayMessage = document.getElementById('overlay-message');
 
-    const API_BASE = "http://127.0.0.1:5000/api"; // Adjust if backend runs elsewhere
+    // In frontend/index.html, update:
+const API_BASE = "https://legalmind-backend.onrender.com/api"; // Adjust if backend runs elsewhere
 
     function init() {
         fileInput.addEventListener('change', function(e) {
@@ -881,3 +882,4 @@
 
 </body>
 </html>
+
